@@ -1,0 +1,50 @@
+{% load static %}
+
+<style>
+  .gradient-peach {
+    background: linear-gradient(to right, #ff8c61, #ffb86d);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .gradient-peach:hover {
+    background: linear-gradient(to right, #ffb86d, #ff8c61);
+  }
+
+  .gradient-ocean {
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .gradient-ocean:hover {
+    background: linear-gradient(to right, #5b86e5, #36d1dc);
+  }
+
+</style>
+  
+  
+  <section class="py-5 text-center container" style="background-image: url({% static 'assets/cd.jpg' %}); background-size: cover; background-position: center; background-repeat: no-repeat">
+    <div class="row py-lg-5" >
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light text-white">Album Bank</h1>
+        <br>
+          {% if user.is_authenticated %}
+          <a href="{% url 'albumapp:post' %}" class="btn gradient-peach my-2">投稿する</a>
+          <a href="{% url 'accounts:logout' %}" class="btn gradient-ocean my-2">ログアウト</a>
+          {% else %}
+          <a href="{% url 'accounts:signup' %}" class="btn gradient-peach my-2">今すぐサインアップ</a>
+          <a href="{% url 'accounts:login' %}" class="btn gradient-ocean my-2">登録済みの方はログイン</a>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </section>

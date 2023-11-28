@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Album Detail{% endblock %}
+
+    {% block contents %}
+    <br>
+    <div class='container'>
+        <div class='row'>
+            <div class='col offset-3'>
+                <form method = "POST">
+                    <br>
+                    <p>削減してもいいですか？</p>
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary my-2">削減</button>
+                    <a href="{% url 'albumapp:album_detail' object.pk %}" class="btn btn-secondary my-2">キャンセル</a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}            
